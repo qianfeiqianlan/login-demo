@@ -4,13 +4,13 @@ import "@authing/react-ui-components/lib/index.min.css";
 import * as axios from "axios";
 
 const App = () => {
-  const appId = "61cdab124e0aea77b701480a";
+  const appId = "622acbb58a946f7569f6c668";
   const [user, setUser] = useState(null);
 
   const onLogin = (userInfo) => {
     console.log(userInfo);
     axios.get(`/users/${userInfo.id}`).then((u) => {
-      console.log(u);
+      // console.log(u);
       setUser(u);
     });
   };
@@ -23,8 +23,8 @@ const App = () => {
           appId={appId}
           onLogin={onLogin}
           config={{
-            __appHost__: "https://m3apmg-demo.yyy.mereith.com:9999",
-            host: "https://m3apmg-demo.yyy.mereith.com:9999",
+            __appHost__: "https://cmdkifehihojpjmo-demo.pre.authing.cn",
+            host: "https://cmdkifehihojpjmo-demo.pre.authing.cn",
           }}
         />
       )}

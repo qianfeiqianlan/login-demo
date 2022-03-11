@@ -1,8 +1,8 @@
 const { ManagementClient } = require("authing-js-sdk");
 const managementClient = new ManagementClient({
-  userPoolId: "61cdab1178a00d7849116d17",
-  secret: "3185b6eb99c63dbff28c07bbc58f1c22",
-  host: "https://core.yyy.mereith.com:9999",
+  userPoolId: "622acbb4bc045dad5d2ebc94",
+  secret: "f1f311beccbf0285c893bd3cd5595617",
+  host: "https://core.pre.authing.cn",
 });
 
 module.exports.getUserDetail = async (id) => {
