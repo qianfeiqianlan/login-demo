@@ -6,12 +6,12 @@ const port = 3001;
 
 app.use(express.static("../guard-demo/build"));
 
-app.get("/users/:id/:identityId", async (req, res) => {
+app.get("/users/:id", async (req, res) => {
   const id = req.params.id;
-  const identityId = req.params.identityId;
+  const identityId = req.query.identityId;
   getUserDetail(id)
     .then((u) => {
-      const s = u.identities?.find(identityId);
+      const s = u.identities?.find((i) => i.id == identityId);
       res.json(s);
     })
     .catch((e) => {
