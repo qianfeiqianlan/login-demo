@@ -1,6 +1,6 @@
 process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
 const express = require("express");
-const { getUserDetail } = require("./user");
+const { getUserDetail, convertCorrectUserInfo } = require("./user");
 const app = express();
 const port = 3001;
 
@@ -11,8 +11,9 @@ app.get("/users/:id", async (req, res) => {
   const identityId = req.query.identityId;
   getUserDetail(id)
     .then((u) => {
-      const s = u.identities?.find((i) => i.id == identityId);
-      res.json(s);
+      // const s = u.identities?.find((i) => i.id == identityId);
+      const user = convertCorrectUserInfo(u, identityId);
+      res.json(user);
     })
     .catch((e) => {
       res.json(e);
