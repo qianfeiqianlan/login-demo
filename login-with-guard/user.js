@@ -36,6 +36,13 @@ module.exports.convertCorrectUserInfo = (user, currentIdentityId) => {
     return { name, username, avatar, ...basicUser };
   }
 
+  if(currentIdentity?.provider === "wechat") {
+    const name = currentIdentity.userInfoInIdp.nickname;
+    const username = user.username;
+    const avatar = currentIdentity.userInfoInIdp.photo;
+    return { name, username, avatar, ...basicUser };
+  }
+
   const name = user.nickname || user.name;
   const username = user.username;
   const avatar = currentIdentity.photo;
